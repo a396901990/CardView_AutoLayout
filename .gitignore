@@ -14,9 +14,9 @@ release.properties
 
 .idea
 *.iml
+*.class
 classes
 
 obj
 
 .DS_Store
-*.class
