@@ -348,14 +348,12 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int border=0x7f020000;
-        public static final int delete=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int myself2=0x7f020003;
-        public static final int p1=0x7f020004;
-        public static final int p2=0x7f020005;
-        public static final int p3=0x7f020006;
-        public static final int p5=0x7f020007;
-        public static final int selectable_background_cardbank=0x7f020008;
+        public static final int ic_launcher=0x7f020001;
+        public static final int myself=0x7f020002;
+        public static final int p1=0x7f020003;
+        public static final int p2=0x7f020004;
+        public static final int p3=0x7f020005;
+        public static final int selectable_background_cardbank=0x7f020006;
     }
     public static final class id {
         public static final int action_add=0x7f080024;
@@ -398,14 +396,12 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int calc_card=0x7f030000;
-        public static final int card_container=0x7f030001;
-        public static final int card_layout3=0x7f030002;
-        public static final int cardview_container=0x7f030003;
-        public static final int clock_card=0x7f030004;
-        public static final int color_card=0x7f030005;
-        public static final int id_card=0x7f030006;
-        public static final int main_layout=0x7f030007;
-        public static final int pic_card=0x7f030008;
+        public static final int cardview_container=0x7f030001;
+        public static final int clock_card=0x7f030002;
+        public static final int color_card=0x7f030003;
+        public static final int id_card=0x7f030004;
+        public static final int main_layout=0x7f030005;
+        public static final int pic_card=0x7f030006;
     }
     public static final class menu {
         public static final int menu=0x7f0a0000;

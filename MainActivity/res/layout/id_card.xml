@@ -6,20 +6,20 @@
 
     <ImageView
         android:id="@+id/pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:adjustViewBounds="true"
         android:baselineAlignBottom="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/myself" />
 
     <ImageView
         android:id="@+id/arrow"
-        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/pic"
         android:src="@android:drawable/arrow_down_float" />
 
@@ -60,7 +60,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="现状：单身狗"
+            android:text="国籍：中国"
+            android:textColor="@color/card_light_text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="民族：汉族"
             android:textColor="@color/card_light_text"
             android:textSize="20sp" />
     </LinearLayout>

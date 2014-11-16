@@ -36,10 +36,9 @@ public class IDFragment
     @Override
     public void onActivityCreated( Bundle savedInstanceState )
     {
-        isShowTitle(true);
         super.onActivityCreated(savedInstanceState);
         setCardView(getActivity().getLayoutInflater().inflate(R.layout.id_card, null, false));
-
+        setTitle("∏ˆ»ÀΩÈ…‹");
         Button delBtn = (Button) getView().findViewById(R.id.card_del_btn);
         delBtn.setOnClickListener(new View.OnClickListener()
             {
