@@ -26,5 +26,6 @@ build/
 .idea/
 local.properties
 demo/apk/
+.metadata/
 
 #Personal Files
