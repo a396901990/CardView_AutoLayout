@@ -21,7 +21,6 @@ public final class CardManager
             sInstance = new CardManager();
         }
         return sInstance;
-        
     }
 
     private PagerAdapter mAdapter;
