@@ -15,6 +15,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+/**
+ * Fragment of card
+ * 
+ * Author: Dean Guo
+ */
 public class CardFragment extends Fragment {
 
 	private boolean isShowTitle = false;

@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * The fragment to show clock
+ * 
+ * Author: Dean Guo
+ */
 public class ClockFragment
     extends CardFragment
 {

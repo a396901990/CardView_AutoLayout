@@ -16,6 +16,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+/**
+ * Custom ScrollView as a parent view
+ * 
+ * Author: Dean Guo
+ */
 public class MyScrollView
     extends ScrollView
 {

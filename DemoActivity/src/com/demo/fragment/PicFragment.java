@@ -11,8 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ViewAnimator;
 
 /**
- * A simple {@link Fragment} subclass.
+ * The fragment to show picture
  * 
+ * Author: Dean Guo
  */
 public class PicFragment
     extends CardFragment

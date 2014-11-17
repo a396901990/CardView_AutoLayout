@@ -6,7 +6,9 @@ import java.util.List;
 import com.dean.fragment.CardFragment;
 
 /**
- * Created by temp on 8/29/14.
+ * Management the card fragment
+ * 
+ * Author: Dean Guo
  */
 public final class CardManager {
 	private static CardManager sInstance;

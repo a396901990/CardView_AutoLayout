@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+/**
+ * The fragment of a calculation
+ * 
+ * Author: Dean Guo
+ */
 public class CalcFragment
     extends CardFragment
 {

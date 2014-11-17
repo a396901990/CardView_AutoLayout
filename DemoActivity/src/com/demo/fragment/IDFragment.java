@@ -13,8 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
- * A simple {@link Fragment} subclass.
+ * The fragment to show identity information
  * 
+ * Author: Dean Guo
  */
 public class IDFragment
     extends CardFragment
