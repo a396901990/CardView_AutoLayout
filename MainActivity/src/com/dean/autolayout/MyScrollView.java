@@ -1,13 +1,8 @@
 package com.dean.autolayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.dean.fragment.CalcFragment;
 import com.dean.fragment.CardFragment;
-import com.dean.fragment.ClockFragment;
-import com.dean.fragment.IDFragment;
-import com.dean.fragment.PicFragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -58,13 +53,13 @@ public class MyScrollView
 
     public void initCrads()
     {
-        List<CardFragment> mCardFragments =  new ArrayList<CardFragment>(); 
-        mCardFragments.add(new IDFragment());
-        mCardFragments.add(new CalcFragment());
-        mCardFragments.add(new PicFragment());
-        mCardFragments.add(new ClockFragment());
-        
-        CardManager.getInstance().setCardFragments(mCardFragments);
+//        List<CardFragment> mCardFragments =  new ArrayList<CardFragment>(); 
+//        mCardFragments.add(new IDFragment());
+//        mCardFragments.add(new CalcFragment());
+//        mCardFragments.add(new PicFragment());
+//        mCardFragments.add(new ClockFragment());
+//        
+//        CardManager.getInstance().setCardFragments(mCardFragments);
     }
     
     private void initView( int columns )
