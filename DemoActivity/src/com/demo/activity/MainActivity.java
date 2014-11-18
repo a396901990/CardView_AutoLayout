@@ -16,7 +16,7 @@ import android.app.Activity;
  * Demo Activity to show how to use CardView_AutoLayout library.
  * Create your fragment which extended from CardFragment and added into CardManager
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
 public class MainActivity extends Activity {
 

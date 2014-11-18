@@ -1,128 +1,201 @@
 package com.dean.fragment;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.dean.autolayout.R;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.annotation.SuppressLint;
 import android.app.Fragment;
-import android.content.Intent;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
- * Fragment of card
+ * Parent Fragment of card
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
-public class CardFragment extends Fragment {
+@SuppressLint(
+    { "HandlerLeak", "ClickableViewAccessibility" })
+public class CardFragment
+    extends Fragment
+    implements OnTouchListener
+{
 
-	private boolean isShowTitle = false;
+    private boolean isShowTitle = false;
 
-	private boolean isShowDelBtn = false;
+    private boolean isLongClick = false;
 
-	private PagerAdapter mAdapter;
+    private Timer timer = null;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		FrameLayout root = new FrameLayout(getActivity());
-		FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
-				ViewGroup.LayoutParams.WRAP_CONTENT,
-				ViewGroup.LayoutParams.WRAP_CONTENT);
-		root.setLayoutParams(layoutParams);
-		root.setPadding(10, 10, 10, 10);
-		return root;
-	}
+    private CardActionListener cardActionListener;
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		initView();
-	}
+    private CardFragment mFragment;
 
-	private void initView() {
+    @Override
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
+    {
+        mFragment = this;
+        FrameLayout root = new FrameLayout(getActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        root.setLayoutParams(layoutParams);
+        root.setPadding(10, 10, 10, 10);
+        return root;
+    }
 
-		ViewGroup root = (ViewGroup) getView();
-		if (root == null) {
-			return;
-		}
+    @Override
+    public void onActivityCreated( Bundle savedInstanceState )
+    {
+        super.onActivityCreated(savedInstanceState);
+        initView();
+    }
 
-		root.removeAllViewsInLayout();
-		View.inflate(getActivity(), R.layout.cardview_container, root);
+    private void initView()
+    {
 
-		View titleView = root.findViewById(R.id.card_title);
-		titleView.setVisibility(isShowTitle ? View.VISIBLE : View.GONE);
-		Button delBtn = (Button) root.findViewById(R.id.card_del_btn);
-		delBtn.setVisibility(isShowDelBtn ? View.VISIBLE : View.GONE);
+        ViewGroup root = (ViewGroup) getView();
+        if (root == null)
+        {
+            return;
+        }
 
-		Animation animation = AnimationUtils.loadAnimation(getActivity(),
-				R.anim.push_up_in);
-		animation.setDuration(500);
-		root.clearAnimation();
-		root.startAnimation(animation);
-	}
+        root.removeAllViewsInLayout();
+        View.inflate(getActivity(), R.layout.cardview_container, root);
 
-	public void setCardView(View v) {
-		ViewGroup root = (ViewGroup) getView();
-		if (root != null) {
-			ViewGroup container = (ViewGroup) root
-					.findViewById(R.id.card_container);
-			if (v.getParent() != null) {
-				((ViewGroup) v.getParent()).removeView(v);
-			}
-			container.addView(v);
-		}
-	}
+        View titleView = root.findViewById(R.id.card_title);
+        titleView.setVisibility(isShowTitle ? View.VISIBLE : View.GONE);
 
-	public void setTitle(String title) {
-		ViewGroup root = (ViewGroup) getView();
-		if (root == null) {
-			return;
-		}
-		isShowTitle = true;
-		TextView titleTextView = (TextView) root
-				.findViewById(R.id.card_title_text);
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.push_up_in);
+        animation.setDuration(500);
+        root.clearAnimation();
+        root.startAnimation(animation);
+    }
 
-		View titleView = root.findViewById(R.id.card_title);
-		titleView.setVisibility(View.VISIBLE);
-		titleTextView.setText(title);
-	}
+    public void setCardView( View v )
+    {
+        ViewGroup root = (ViewGroup) getView();
+        if (root != null)
+        {
+            ViewGroup container = (ViewGroup) root.findViewById(R.id.card_container);
+            if (v.getParent() != null)
+            {
+                ((ViewGroup) v.getParent()).removeView(v);
+            }
+            container.addView(v);
+        }
+    }
 
-	public void isShowTitle(boolean isShowTitle) {
-		this.isShowTitle = isShowTitle;
-	}
+    public void setTitle( String title )
+    {
+        ViewGroup root = (ViewGroup) getView();
+        if (root == null)
+        {
+            return;
+        }
+        isShowTitle = true;
+        TextView titleTextView = (TextView) root.findViewById(R.id.card_title_text);
 
-	public void showDelBtn(String title) {
-		ViewGroup root = (ViewGroup) getView();
-		if (root == null) {
-			return;
-		}
-		isShowDelBtn = true;
-		Button delBtn = (Button) root.findViewById(R.id.card_del_btn);
-		delBtn.setVisibility(View.VISIBLE);
-	}
+        View titleView = root.findViewById(R.id.card_title);
+        titleView.setVisibility(View.VISIBLE);
+        titleTextView.setText(title);
+    }
 
-	public void isShowDelBtn(boolean isShowDelBtn) {
-		this.isShowDelBtn = isShowDelBtn;
-	}
+    public void isShowTitle( boolean isShowTitle )
+    {
+        this.isShowTitle = isShowTitle;
+    }
 
-	public void deleteSelf() {
-		startActivity(new Intent(getActivity(), getActivity().getClass()));
-		getActivity().finish();
-	}
+    protected static final int LONG_CLICK = 0;
 
-	public PagerAdapter getAdapter() {
-		return mAdapter;
-	}
+    protected static final int UP_CLICK = 1;
 
-	public void setAdapter(PagerAdapter mAdapter) {
-		this.mAdapter = mAdapter;
-	}
+    private Handler mHandler = new Handler()
+        {
+            public void handleMessage( Message msg )
+            {
+                switch (msg.what)
+                {
+                case LONG_CLICK:
+                    getView().findViewById(R.id.delete_view).setVisibility(View.VISIBLE);
+                    getView().findViewById(R.id.container_view).setAlpha(0.2f);
+                    isLongClick = true;
+                    this.postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                if (isLongClick)
+                                {
+                                    cardActionListener.removeCard(mFragment);
+                                }
+                            }
+                        }, 3000);
+                    break;
+                case UP_CLICK:
+                    getView().findViewById(R.id.delete_view).setVisibility(View.GONE);
+                    getView().findViewById(R.id.container_view).setAlpha(1f);
+                    isLongClick = false;
+                    break;
+                }
+            }
+
+        };
+
+    @Override
+    public boolean onTouch( View v, MotionEvent ev )
+    {
+        switch (ev.getAction())
+        {
+        case MotionEvent.ACTION_DOWN:
+            timer = new Timer();
+            timer.schedule(new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        mHandler.sendEmptyMessage(LONG_CLICK);
+                    }
+                }, 1500);
+
+            break;
+        case MotionEvent.ACTION_UP:
+            timer.cancel();
+            timer = null;
+            mHandler.sendEmptyMessage(UP_CLICK);
+            break;
+        }
+
+        return true;
+    }
+
+    public CardActionListener getCardActionListener()
+    {
+        return cardActionListener;
+    }
+
+    public void setCardActionListener( CardActionListener cardActionListener )
+    {
+        this.cardActionListener = cardActionListener;
+    }
+
+    /**
+     * Card action Listener to listening adding & removing action
+     */
+    public static interface CardActionListener
+    {
+        public void addCard( CardFragment fragment );
+
+        public void removeCard( CardFragment fragment );
+    }
 
 }

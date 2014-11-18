@@ -1,59 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     card_view:cardBackgroundColor="@color/cardview_dark_background"
     card_view:cardCornerRadius="8dp" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="match_parent" >
 
         <LinearLayout
-            android:id="@+id/card_title"
+            android:id="@+id/container_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible" >
+            android:orientation="vertical" >
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp" >
+                android:orientation="vertical"
+                android:visibility="visible" >
 
                 <TextView
-                    android:padding="5dp"
                     android:id="@+id/card_title_text"
-                    style="@style/CardTitle"
+                    style="@style/CardTitleBold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="20sp" />
+                    android:layout_height="wrap_content" />
 
-                <Button
-                    android:id="@+id/card_del_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@android:drawable/ic_menu_delete"
-                    android:visibility="gone" />
-            </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/stroke" />
+            </LinearLayout>
 
-            <View
+            <FrameLayout
+                android:id="@+id/card_container"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/stroke" />
+                android:layout_height="wrap_content" >
+            </FrameLayout>
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/card_container"
+            android:id="@+id/delete_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:ignore="UselessParent" >
+
+                <TextView
+                    style="@style/CardTitleBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/delete_bar_title" />
+
+                <ProgressBar
+                    android:id="@+id/processBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </LinearLayout>
         </FrameLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

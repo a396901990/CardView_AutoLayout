@@ -3,7 +3,9 @@ package com.demo.fragment;
 import com.dean.fragment.CardFragment;
 import com.demo.R;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,7 @@ import android.widget.EditText;
 /**
  * The fragment of a calculation
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
 public class CalcFragment
     extends CardFragment
@@ -36,10 +38,12 @@ public class CalcFragment
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public void onActivityCreated( Bundle savedInstanceState )
     {
-        isShowTitle(false);
+        getView().setOnTouchListener(this);
+
         super.onActivityCreated(savedInstanceState);
         setCardView(getActivity().getLayoutInflater().inflate(R.layout.calc_card, null, false));
 
@@ -87,7 +91,7 @@ public class CalcFragment
     public void pressButton( int calcType )
     {
         CharSequence temp = displayText.getText();
-        if (temp.equals(null))
+        if (TextUtils.isEmpty(temp))
         {
             return;
         }
@@ -100,7 +104,7 @@ public class CalcFragment
     public void pressEquButton()
     {
         CharSequence temp = displayText.getText();
-        if (temp.equals(null))
+        if (TextUtils.isEmpty(temp))
         {
             return;
         }

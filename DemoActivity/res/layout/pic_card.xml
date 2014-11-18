@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <ViewAnimator
         android:id="@+id/flipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:inAnimation="@anim/scale_in"
-        android:outAnimation="@anim/scale_out" >
+        android:outAnimation="@anim/scale_out"
+        tools:ignore="UselessParent" >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            android:src="@drawable/p1" />
+            android:src="@drawable/p1"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            android:src="@drawable/p2" />
+            android:src="@drawable/p2"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            android:src="@drawable/p3" />
+            android:src="@drawable/p3"
+            tools:ignore="ContentDescription" />
+
     </ViewAnimator>
 
 </LinearLayout>

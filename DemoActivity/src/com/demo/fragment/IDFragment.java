@@ -4,18 +4,17 @@ import com.dean.fragment.CardFragment;
 import com.demo.R;
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
  * The fragment to show identity information
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
 public class IDFragment
     extends CardFragment
@@ -32,22 +31,14 @@ public class IDFragment
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    @Override
+    @SuppressLint("InflateParams") @Override
     public void onActivityCreated( Bundle savedInstanceState )
     {
+        getView().setOnTouchListener(this);
+        
         super.onActivityCreated(savedInstanceState);
         setCardView(getActivity().getLayoutInflater().inflate(R.layout.id_card, null, false));
-        setTitle("∏ˆ»ÀΩÈ…‹");
-        Button delBtn = (Button) getView().findViewById(R.id.card_del_btn);
-        delBtn.setOnClickListener(new View.OnClickListener()
-            {
-                
-                @Override
-                public void onClick( View arg0 )
-                {
-                    deleteSelf();
-                }
-            });
+        setTitle("RESUME");
         arrow = (ImageView) getView().findViewById(R.id.arrow);
         expandedView = (LinearLayout) getView().findViewById(R.id.expandedView);
 

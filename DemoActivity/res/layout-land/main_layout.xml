@@ -3,15 +3,14 @@
     xmlns:auto="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <com.dean.autolayout.MyScrollView
-        auto:columns="2"
+    <com.dean.autolayout.CardScrollView
         android:id="@+id/myScrollView"
-        android:layout_margin="10dip"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        </com.dean.autolayout.MyScrollView>
+        android:layout_height="match_parent"
+        android:layout_margin="10dip"
+        auto:columns="2" >
+    </com.dean.autolayout.CardScrollView>
 
 </LinearLayout>

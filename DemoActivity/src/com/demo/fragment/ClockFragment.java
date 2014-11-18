@@ -3,6 +3,7 @@ package com.demo.fragment;
 import com.dean.fragment.CardFragment;
 import com.demo.R;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * The fragment to show clock
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
 public class ClockFragment
     extends CardFragment
@@ -23,13 +24,14 @@ public class ClockFragment
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public void onActivityCreated( Bundle savedInstanceState )
     {
-        isShowTitle(false);
+        getView().setOnTouchListener(this);
         super.onActivityCreated(savedInstanceState);
         setCardView(getActivity().getLayoutInflater().inflate(R.layout.clock_card, null, false));
-        
+
     }
 
 }

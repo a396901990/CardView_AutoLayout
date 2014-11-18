@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.dean.autolayout.MyScrollView
+    <com.dean.autolayout.CardScrollView
         android:id="@+id/myScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dip"
         auto:columns="1" >
-    </com.dean.autolayout.MyScrollView>
+    </com.dean.autolayout.CardScrollView>
 
 </LinearLayout>

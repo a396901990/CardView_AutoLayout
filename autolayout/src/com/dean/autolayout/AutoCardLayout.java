@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 /**
  * Auto layout view by columns like waterfall layout
  * 
- * Author: Dean Guo
+ * @author Dean Guo
  */
 public class AutoCardLayout
     extends ViewGroup
