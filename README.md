@@ -1,6 +1,6 @@
 CardView_AutoLayout
 ===================
-CardView can auto layout with different columns as a waterfall layout
+CardView can auto layout with different columns as a waterfall layout  
 可以根据不同行数来自动布局的Card视图  
 
 * 使用了Google在Android5.0提供的新控件CardView
